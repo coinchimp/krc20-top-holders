@@ -11,6 +11,8 @@ const Main = () => {
 
   useEffect(() => {
     if (tick) {
+      let timeoutId;
+
       const fetchData = async () => {
         try {
           const tokenResponse = await axios.get(`https://tn11api.kasplex.org/v1/krc20/token/${tick}?holder=true`);
@@ -18,6 +20,7 @@ const Main = () => {
           setTokenData(tokenResponse.data.result[0]);
           setStatsData(statsResponse.data.result[0]);
           setTimeoutReached(false); // Reset timeout state if data is fetched successfully
+          clearTimeout(timeoutId); // Clear the timeout if data is fetched successfully
         } catch (error) {
           console.error('Error fetching data', error);
         }
@@ -25,7 +28,7 @@ const Main = () => {
 
       fetchData();
 
-      const timeout = setTimeout(() => {
+      timeoutId = setTimeout(() => {
         setTimeoutReached(true);
       }, 10000); // 10 seconds timeout
 
@@ -37,7 +40,7 @@ const Main = () => {
 
       return () => {
         window.removeEventListener('resize', handleResize);
-        clearTimeout(timeout);
+        clearTimeout(timeoutId);
       };
     }
   }, [tick]);
