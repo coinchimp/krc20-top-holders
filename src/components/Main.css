@@ -1,0 +1,45 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+  }
+  
+  .app-container {
+    margin-top: 20px;
+  }
+  
+  h3, h4 {
+    font-weight: bold;
+  }
+  
+  .custom-table thead {
+    background-color: #343a40;
+    color: #ffffff;
+  }
+  
+  .custom-table tbody tr {
+    transition: background-color 0.3s ease;
+  }
+  
+  .custom-table tbody tr:hover {
+    background-color: #e9ecef;
+  }
+  
+  .progress-bar {
+    background-color: #28a745;
+  }
+  
+  .progress {
+    height: 30px;
+    font-size: 1.2em;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .progress-label {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
