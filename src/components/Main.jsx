@@ -30,7 +30,7 @@ const Main = () => {
 
       timeoutId = setTimeout(() => {
         setTimeoutReached(true);
-      }, 10000); // 10 seconds timeout
+      }, 20000); // 20 seconds timeout
 
       const handleResize = () => {
         setIsMobile(window.innerWidth <= 768);
