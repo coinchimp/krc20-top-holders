@@ -20,7 +20,7 @@ const Hero = () => {
       setLoading(true);
       setError('');
       try {
-        const response = await fetchWithTimeout(`https://api.kasplex.org/v1/krc20/token/${inputTick}?stat=true`, 10000);
+        const response = await fetchWithTimeout(`https://${process.env.REACT_APP_KASPLEX_API}/krc20/token/${inputTick}?stat=true`, 10000);
         if (response.data.result && response.data.result.length > 0) {
           navigate(`/${inputTick}`);
         } else {

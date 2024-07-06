@@ -15,8 +15,8 @@ const Main = () => {
 
       const fetchData = async () => {
         try {
-          const tokenResponse = await axios.get(`https://api.kasplex.org/v1/krc20/token/${tick}?holder=true`);
-          const statsResponse = await axios.get(`https://api.kasplex.org/v1/krc20/token/${tick}?stat=true`);
+          const tokenResponse = await axios.get(`https://${process.env.REACT_APP_KASPLEX_API}/krc20/token/${tick}?holder=true`);
+          const statsResponse = await axios.get(`https://${process.env.REACT_APP_KASPLEX_API}/krc20/token/${tick}?stat=true`);
           setTokenData(tokenResponse.data.result[0]);
           setStatsData(statsResponse.data.result[0]);
           setTimeoutReached(false); // Reset timeout state if data is fetched successfully
@@ -109,7 +109,7 @@ const Main = () => {
             {holder.map((holder, index) => (
               <tr key={index} style={{ transition: 'background-color 0.3s ease', backgroundColor: index % 2 === 0 ? '#2b2b2b' : '#1f1f1f' }}>
                 <td style={{ padding: '8px', border: '1px solid #ddd' }}>
-                  <a href={`https://explorer.kaspa.org/addresses/${holder.address}?page=1`} target="_blank" rel="noopener noreferrer" style={{ color: 'white', textDecoration: 'none' }}>
+                  <a href={`https://${process.env.REACT_APP_KASPLEX_API}/krc20/address/${holder.address}?page=1`} target="_blank" rel="noopener noreferrer" style={{ color: 'white', textDecoration: 'none' }}>
                     {compressAddress(holder.address)}
                   </a>
                 </td>
