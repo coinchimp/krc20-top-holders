@@ -15,8 +15,8 @@ const Main = () => {
 
       const fetchData = async () => {
         try {
-          const tokenResponse = await axios.get(`https://api.kasplex.org/v1/krc20/token/${tick}?holder=true`);
-          const statsResponse = await axios.get(`https://api.kasplex.org/v1/krc20/token/${tick}?stat=true`);
+          const tokenResponse = await axios.get(`https://${process.env.REACT_APP_KASPLEX_API}/krc20/token/${tick}?holder=true`);
+          const statsResponse = await axios.get(`https://${process.env.REACT_APP_KASPLEX_API}/krc20/token/${tick}?stat=true`);
           setTokenData(tokenResponse.data.result[0]);
           setStatsData(statsResponse.data.result[0]);
           setTimeoutReached(false); // Reset timeout state if data is fetched successfully
