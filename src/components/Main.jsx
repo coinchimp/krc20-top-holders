@@ -109,7 +109,7 @@ const Main = () => {
             {holder.map((holder, index) => (
               <tr key={index} style={{ transition: 'background-color 0.3s ease', backgroundColor: index % 2 === 0 ? '#2b2b2b' : '#1f1f1f' }}>
                 <td style={{ padding: '8px', border: '1px solid #ddd' }}>
-                  <a href={`https://${process.env.REACT_APP_KASPLEX_API}/krc20/address/${holder.address}?page=1`} target="_blank" rel="noopener noreferrer" style={{ color: 'white', textDecoration: 'none' }}>
+                  <a href={`https://explorer.kaspa.org/addresses/${holder.address}?page=1`} target="_blank" rel="noopener noreferrer" style={{ color: 'white', textDecoration: 'none' }}>
                     {compressAddress(holder.address)}
                   </a>
                 </td>
